@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400&family=The+Nautigal:wght@700&display=swap');
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+:root{
+    --main-font-color:rgb(0, 146, 165);
+    --main-white:rgb(255, 255, 255);
+    --main-font-dark-gray:#b98ea1d3;
+    --main-footer-bg-color:#000000;
+    --main-font-family: 'Roboto', sans-serif;
+} 
+section{
+    padding: 6.5rem 0;
+}
+p{
+    line-height: 2;
+    font-size: 2.3;
+    font-weight: 300;
+    color:  var(--main-font-dark-gray);
+}
+a{
+    text-decoration: none;
+    color: var(--main-white);
+}
+.btn{
+    display: inline-block;
+    transition: all 750ms;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.custom-font{
+    font-family: var(--main-font-family);
+    color:var(--main-font-color);
+    font-size: 6.5rem;
+    line-height: 1;
+    font-weight: 100;
+}
+.container{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+/*Header*/
+header{
+    width: 100%;
+    height: 110vh;
+    background: linear-gradient(to bottom,rgba(82, 6, 33, 0.226),transparent),
+    url(images/cake.jpeg) bottom no-repeat;
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    position: relative;
+}
+/*Header-Nav Toggle*/
+.menu{
+    padding: 2rem 2.5rem;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+    background-color: rgba(175, 168, 171, 0.616);
+    z-index: 999;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.menu .bar,
+.menu .bar::before,
+.menu .bar::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 4rem;
+    background-color: var(--main-white);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    margin: auto;
+    transition: 650ms;
+}
+.menu .bar::before{
+    top: 2.8rem;
+}
+.menu .bar::after{
+    top: 1.5rem;
+}
+.active .bar{
+    background-color: transparent;
+}
+.active .bar::before{
+    transform: rotate(45deg);
+}
+.active .bar::after{
+    transform: rotate(-45deg);
+}
+.active .bar::before,
+.active .bar::after{
+    top: 1rem;
+}
+/*Header -Nav*/
+.nav{
+    width: 100%;
+    height: 1rem;
+    line-height: 3.5rem;
+    position: relative;
+}
+.overlay{
+    background: rgba(255, 120, 165, 0.623);
+    left: 0;
+    top: -10;
+    bottom: 10;
+    z-index: 1;
+    transition: opacity 650ms;
+    transform: scale(0);
+    opacity: 0;
+}
+.overlay.menu-open{
+    transform: scale(1);
+    opacity: 1;
+}
+.nav .overlay ul{
+    position: relative;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+}
+.nav .overlay ul li{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+.nav .overlay ul li a{
+    display: block;
+    font-size: 2rem;
+    font-weight: 1000;
+    transition: all 650ms;
+}
+.nav .overlay ul li a:hover,
+.nav .overlay ul li a .active:hover{
+    color: var(--main-font-color);
+}
+.logo{
+    margin-top: -35px;
+}
+.main-text{
+    line-height: 0;
+    margin: auto;
+    color: var(--main-white);
+}
+.main-text{
+    line-height: 0;
+    margin: auto;
+    color: var(--main-white);
+}
+.main-text h1{
+    font-family: 'Great Vibes', cursive;
+    color: rgb(255, 255, 255);
+    font-size: 9rem;
+    font-weight: 1000;
+    margin-bottom: 6rem;
+    margin-right: -710px;
+    margin-top: 30px;
+    animation: moveHeader 2s 1.8s forwards;
+    opacity: 0;
+    animation: moveHeader 1.2s 0.7 forwards;
+}
+.main-text h2{
+    color: rgb(3, 155, 175);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    margin-right: -750px;
+    animation: moveHeader 2s 1.8s forwards;
+    opacity: 0;
+    animation: moveHeader 1.2s 0.6 forwards;
+}
+.button-cake{
+    position: absolute;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 35px 15px;
+    background-color: rgb(252, 64, 127);
+    overflow: hidden;
+    margin-left: 295px;
+    width: 155px;
+    height: 85px;
+    font-size:17px;
+    font-weight: 10px;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    opacity: 0;
+    animation: moveHeader 1.2s 0.9 forwards;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.button-cake::after{
+    content:"BUY";
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(38, 167, 184);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    
+    
+}
+.button-cake:hover::after{
+    top:0;
+}
+
+@keyframes moveHeader{
+    0%{
+        transform: translateY(15rem);
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+/*end of home*/
+
+/*About CSS*/
+.About{
+    background: linear-gradient(90deg, rgba(103, 184, 221, 0.568) 0%,rgba(235, 158, 190, 0.705) 100%);
+    color: #fff;
+}
+.About-content{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 85px;
+    font-weight: 620;
+    margin-bottom: 60px;
+    padding-bottom: 22px;
+    font-family: 'The Nautigal', cursive;
+}
+.About .About-content .left{
+    width: 45%;
+}
+.About .About-content .left img{
+    height: 450px;
+    width: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.About .About-content .right{
+    width:55%;
+}
+.About .About-content .right .text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.About .About-content .right p{
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: 200;
+    font-size: 15px;
+}
+.button-read {
+    position: absolute;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 15px 15px;
+    background-color: rgb(252, 64, 127);
+    overflow: hidden;
+    margin-left: 250px;
+    width: 100px;
+    height: 50px;
+    font-size:13px;
+    font-weight: 10px;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.button-read::after{
+    content:"Read Now";
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(38, 167, 184);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    font-size: 14px;
+}
+.button-read:hover::after{
+    top:0;
+}
+/*Menu*/
+.Menu{
+    background: linear-gradient(90deg, rgba(103, 184, 221, 0.568) 0%,rgba(235, 158, 190, 0.705) 100%);
+    color: #fff;
+    
+}
+.Menu h1{
+    color: #fff;
+    font-family: 'The Nautigal', cursive;
+}
+.Menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    
+}
+.Menu .box-container .box{
+    padding: 5rem;
+    text-align: center;
+    border: rgba(0, 0, 0, 0.822);
+}
+.Menu .box-container .box img{
+    height: 25rem;
+    width: 20rem;
+    
+}
+.Menu .box-container .box h3{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    padding: 1rem 0;
+    font-family: 'Roboto', sans-serif;
+}
+.Menu .box-container .box .price{
+    color: snow;
+    font-size: 2rem;
+    padding: .5rem 0;
+    font-family: 'Roboto', sans-serif;
+}
+.Menu .box-container .box:hover{
+    background-color: rgba(136, 185, 185, 0.733);
+}
+.Menu .box-container .box i{
+    font-size: 2.7rem;
+    color: snow;
+    background-color: rgba(155, 148, 152, 0.705);
+    transition: color 0.3s ease;
+}
+.Menu .box-container .box:hover i{
+    color: rgb(255, 64, 127);
+}
+
+/* Galery CSS */
+.Galery{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -65px;
+}
+.Galery-item{
+    width: 25%;
+    height: 410px;
+    overflow: hidden;
+    position: relative;
+}
+.Galery-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+.overlay-g{
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 120, 165, 0.863);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0.8;
+    color: rgb(22, 2, 2);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s
+}
+.Galery-item:hover .overlay-g{
+    top:0;
+}
+.Galery-item:hover img{
+    transform: scale(1.1);
+}
+/*end of Galery*/
+/*Contact*/
+.Contact{
+    padding: 10px 0;
+    margin-top: -64.8px;
+    background: linear-gradient(90deg, rgba(103, 184, 221, 0.568) 0%,rgba(235, 158, 190, 0.705) 100%);
+    color: #fff;
+}
+.title{
+    margin-top: 30px;
+    font-family: 'The Nautigal', cursive;
+}
+.order{
+    text-align: center;
+    justify-content: center;
+    font-size: 20px;
+    color: rgb(32, 145, 160);
+    margin-top: 50px;
+    margin-bottom: -40px;
+}
+.container-text{
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+#contact-text{
+    background: white;
+    padding: 20px;
+    margin: 50px 0px;
+    box-shadow: inset 0 0 1rem rgb(32, 145, 160);
+    font-family: 'Roboto', sans-serif;
+}
+#contact-text h2{
+    display: block;
+    font: 30px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+.form-control{
+    border: none;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+}
+#contact-text input[type="text"],
+#contact-text input[type="email"],
+#contact-text textarea{
+    width: 100%;
+    border: 2px solid rgb(32, 145, 160);
+    background: white;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+#contact-text textarea{
+    height: 50px;
+    max-width: 100%;
+    resize: none;
+}
+#contact-text button[type="submit"]{
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: rgb(32, 145, 160);
+    color: white;
+    margin: 0 0 5px;
+    padding: 6px;
+    font-size: 15px;
+}
+.contact-content{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+.contact-item{
+    display: flex;
+    align-items: center;
+    flex-basis: 33%;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+.contact-item i{
+    font-size: 27px;
+    margin-bottom: 40px;
+    color: rgb(32, 145, 160);
+}
+.contact-item p{
+    font-size: 15px;
+    line-height: 33px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 450;
+}
+footer{
+    font-size: 27px;
+    text-align: center;
+    margin-top: -30px;
+    color: rgb(32, 145, 160);
+}
+footer a{
+    color: rgb(32, 145, 160);
+}
+
+/*end of contact*/
+
+/*Header-Nav*/
+@media (max-width:768px){
+    .main-text h1{
+        font-size: 9rem;
+        font-weight: 1000;
+        margin-bottom: 1rem;
+        margin-right:-100px;
+        margin-top: 40px;
+        animation: moveHeader 2s 1.8s forwards;
+        opacity: 0;
+        animation: moveHeader 1.2s 0.7 forwards;
+    }
+    .main-text h2{
+        color: rgb(3, 155, 175);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-top: 50px;
+        margin-right: -135px;
+        animation: moveHeader 2s 1.8s forwards;
+        opacity: 0;
+        animation: moveHeader 1.2s 0.7 forwards;
+    }
+    .button-cake{
+        padding: 35px 15px;
+        margin-left: 85px;
+        width: 135px;
+        height: 75px;
+        font-size:14px;
+        font-weight: 10px;
+        opacity: 0;
+        animation: moveHeader 1.2s 0.9 forwards;
+        font-family: 'Roboto', sans-serif;
+        
+    }
+    .button-cake::after{
+        position: absolute;
+        font-size: 14px;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .5s;
+       
+        
+    }
+    .button-cake:hover::after{
+        top:0;
+    }
+}
+/*About*/
+@media (max-width:768px){
+    .button-read{
+      margin-top: 25px;
+      margin-left: 50px;
+    }
+    .button-read::after{
+        content:"Read Now";
+        font-family: 'Roboto', sans-serif;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgb(38, 167, 184);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .5s;
+        font-size: 14px;
+    }
+    .button-read:hover::after{
+        top:0;
+    }
+}
+/*Galery*/
+@media only screen and (max-width:990px){
+    .Galery.Galery-item{
+        flex-basis: 50%;
+
+    }
+}
+
+@media only screen and (max-width:580px){
+    .Galery .Galery-item{
+        flex-basis: 100%;
+    }
+}
